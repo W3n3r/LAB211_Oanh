@@ -8,6 +8,6 @@ package Week2.P0051;
  *
  * @author tothi
  */
-public class NewClass {
+public class BMI {
     
 }
