@@ -34,7 +34,6 @@ public class Matrix {
         return data;
     }
 
-    // nhập ma trận từ bàn phím
     public void input(Scanner sc, String name) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -52,7 +51,6 @@ public class Matrix {
         }
     }
 
-    // phép cộng ma trận
     public Matrix additionMatrix(Matrix m2) {
         Matrix result = new Matrix(rows, cols);
         for (int i = 0; i < rows; i++) {
@@ -63,7 +61,6 @@ public class Matrix {
         return result;
     }
 
-    // phép trừ ma trận
     public Matrix subtractionMatrix(Matrix m2) {
         Matrix result = new Matrix(rows, cols);
         for (int i = 0; i < rows; i++) {
@@ -74,7 +71,6 @@ public class Matrix {
         return result;
     }
 
-    // phép nhân ma trận
     public Matrix multiplicationMatrix(Matrix m2) {
         Matrix result = new Matrix(this.rows, m2.cols);
         for (int i = 0; i < this.rows; i++) {
@@ -87,7 +83,6 @@ public class Matrix {
         return result;
     }
 
-    // in ma trận ra console
     public void display() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {

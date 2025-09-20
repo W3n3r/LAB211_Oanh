@@ -36,7 +36,6 @@ public class Main {
                 break;
             }
 
-            // nhập Matrix1
             System.out.print("Enter Row Matrix 1:");
             int rowA = sc.nextInt();
             System.out.print("Enter Column Matrix 1:");
@@ -44,7 +43,6 @@ public class Main {
             Matrix A = new Matrix(rowA, colA);
             A.input(sc, "Matrix1");
 
-            // nhập Matrix2
             System.out.print("Enter Row Matrix 2:");
             int rowB = sc.nextInt();
             System.out.print("Enter Column Matrix 2:");
