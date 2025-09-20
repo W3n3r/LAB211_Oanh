@@ -11,10 +11,9 @@ package Week1.P0011;
 public class BaseConverter {
     
     public String convertBase(String number, int fromBase, int toBase) {
-        // Convert to decimal first
+
         long decimal = toDecimal(number, fromBase);
         
-        // Convert from decimal to target base
         return fromDecimal(decimal, toBase);
     }
     
