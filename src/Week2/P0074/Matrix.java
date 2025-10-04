@@ -44,7 +44,7 @@ public class Matrix {
                         break;
                     } else {
                         System.out.println("Value of matrix is digit");
-                        sc.next(); // bỏ input sai
+                        sc.next();
                     }
                 }
             }
