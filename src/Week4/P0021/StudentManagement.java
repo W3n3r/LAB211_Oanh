@@ -45,7 +45,6 @@ public class StudentManagement {
         }
     }
 
-    // 2. Find and Sort
     public void findAndSort() {
         if (studentList.isEmpty()) {
             System.out.println("No students in the list.");
@@ -73,7 +72,6 @@ public class StudentManagement {
         }
     }
 
-    // 3. Update/Delete
     public void updateOrDelete() {
         if (studentList.isEmpty()) {
             System.out.println("No students to update/delete.");
