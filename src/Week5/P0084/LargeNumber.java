@@ -40,7 +40,7 @@ public class LargeNumber {
         while (i>= 0 || j>=0) {
             
             int so1 = (i>=0) ? this.number.charAt(i) -'0' :0;
-            int so2 = (j>=0) ? this.number.charAt(j) - '0':0;
+            int so2 = (j>=0) ? other.number.charAt(j) - '0':0;
             
             int kq = so1 + so2 + sodu;
             result[k] = kq%10;

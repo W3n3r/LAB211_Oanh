@@ -19,45 +19,47 @@ public class Person {
     String Major;
 
     public Person(String ID, String FullName, String PhoneNumber, int YearOfBirth, String Major) {
+        this.ID = ID;
+        this.FullName = FullName;
+        this.PhoneNumber = PhoneNumber;
+        this.YearOfBirth = YearOfBirth;
+        this.Major = Major;
+    }
+    public Person() {
         this.ID = "";
         this.FullName = "";
         this.PhoneNumber = "";
         this.YearOfBirth = 0;
         this.Major = "";
     }
-    public Person() {
-        this.ID = "ID";
-        this.FullName = FullName;
-        this.PhoneNumber = PhoneNumber;
-        this.YearOfBirth = YearOfBirth;
-        this.Major = Major;
-    }
     
     public void inputAll(Scanner sc) {
         while (true) {
             System.out.print("ID: ");
             String input = sc.nextLine().trim();
-            if (input.matches("\\d{6}")) {
+            if (isValidID(input)) {
                 this.ID = input;
                 break;
             } else {
                 System.out.println("Data input is invalid");
             }
         }
+
         while (true) {
             System.out.print("Fullname: ");
             String input = sc.nextLine().trim();
-            if (input.matches("[a-zA-Z ]+")) {
+            if (isValidFullName(input)) {
                 this.FullName = input;
                 break;
             } else {
                 System.out.println("Data input is invalid");
             }
         }
+
         while (true) {
             System.out.print("Phone number: ");
             String input = sc.nextLine().trim();
-            if (input.matches("\\d{12}")) {
+            if (isValidPhone(input)) {
                 this.PhoneNumber = input;
                 break;
             } else {
@@ -80,12 +82,14 @@ public class Person {
             }
         }
         while (true) {
+            //
             System.out.print("Major: ");
             String input = sc.nextLine().trim();
-            if (input.length() <= 30) {
+            if(input.length() <= 30 ){
                 this.Major = input;
                 break;
-            } else {
+            }
+            else{
                 System.out.println("Data input is invalid");
             }
         }
@@ -102,5 +106,42 @@ public class Person {
     public int getYearOfBirth() { 
         return YearOfBirth; 
     }
+
+    private static boolean isValidID(String s) {
+        if (s == null || s.length() != 6) return false;
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) return false;
+        }
+        return true;
+    }
+
+    private static boolean isValidFullName(String s) {
+        if (s == null) return false;
+        String trimmed = s.trim();
+        if (trimmed.isEmpty()) return false;
+
+        boolean lastWasSpace = false;
+        for (int i = 0; i < trimmed.length(); i++) {
+            char c = trimmed.charAt(i);
+            if (Character.isLetter(c)) {
+                lastWasSpace = false;
+                continue;
+            }
+            if (Character.isSpaceChar(c)) {
+                if (lastWasSpace) return false;
+                lastWasSpace = true;
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
     
+    private static boolean isValidPhone(String s) {
+        if (s == null || s.length() != 12) return false;
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) return false;
+        }
+        return true;
+    }
 }
