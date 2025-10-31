@@ -1,22 +1,16 @@
 package Week6.FruitShop;
 
 public class OrderDetail {
-    private String product;
-    private double price;
+    private Fruit fruit;
     private int quantity;
 
-    public OrderDetail(String product, double price, int quantity) {
-        this.product = product;
-        this.price = price;
+    public OrderDetail(Fruit fruit, int quantity) {
+        this.fruit = fruit;
         this.quantity = quantity;
     }
 
-    public String getProduct() {
-        return product;
-    }
-
-    public double getPrice() {
-        return price;
+    public Fruit getFruit() {
+        return fruit;
     }
 
     public int getQuantity() {
@@ -28,20 +22,16 @@ public class OrderDetail {
     }
 
     public void increaseQuantity(int add) {
-        if (add > 0) {
-            this.quantity += add;
-        }
+        if (add > 0) this.quantity += add;
     }
 
     public double getAmount() {
-        return price * quantity;
+        return fruit.getPrice() * quantity;
     }
 
     @Override
     public String toString() {
-        return String.format("%-20s | %3d | %6.2f$ | %7.2f$", 
-                product, quantity, price, getAmount());
+        return String.format("%-12s | %3d | %.2f$ | %.2f$", 
+                fruit.getName(), quantity, fruit.getPrice(), getAmount());
     }
 }
-
-
